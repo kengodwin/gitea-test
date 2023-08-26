@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   Explore-Gitea-Actions:
-    runs-on: ubuntu-latest
+    runs-on: catthehacker/ubuntu:act-latest
     steps:
       - run: apt-get install php-cli -y
       - run: echo "🎉 The job was automatically triggered by a ${{ gitea.event_name }} event."
