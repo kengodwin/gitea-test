@@ -6,7 +6,7 @@ jobs:
   Explore-Gitea-Actions:
     runs-on: ubuntu-latest
     container:
-     image: https://hub.docker.com/_/ubuntu
+     image: ubuntu:22.04
     steps:
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
