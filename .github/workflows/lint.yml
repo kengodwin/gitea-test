@@ -9,7 +9,7 @@ jobs:
     - name: PHP-CS-Fixer
       uses: docker://oskarstark/php-cs-fixer-ga
       with:
-       args: --config=.project.php_cs --diff --dry-run
+       args: --config=.project.php_cs --diff
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
        commit_message: Apply php-cs-fixer changes
