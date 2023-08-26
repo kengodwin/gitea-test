@@ -6,10 +6,6 @@ jobs:
   Explore-Gitea-Actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'npm'
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: php8.1-cli
