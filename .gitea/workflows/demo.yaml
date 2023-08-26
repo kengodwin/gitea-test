@@ -27,7 +27,7 @@ jobs:
         run: |
           ls ${{ gitea.workspace }}
       - name: Run php unit tests
-        run: ./vendor/bin/phpunit tests
+        run: ./vendor/bin/phpunit --testdox tests
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Notify chatops
         uses: sarisia/actions-status-discord@v1
