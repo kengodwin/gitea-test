@@ -13,4 +13,14 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
        commit_message: Apply php-cs-fixer changes
+    - name: Notify chatops
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+         webhook: ${{ secrets.DISCORD_WEBHOOK }}
+         status: ${{ job.status }}
+         title: "Github actions linting"
+         description: "Test notification"
+         username: Github Actions
+         avatar_url: ${{ secrets.AVATAR_URL }}
 
