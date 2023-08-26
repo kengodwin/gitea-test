@@ -19,8 +19,6 @@ jobs:
       - run: echo "💡 The ${{ gitea.repository }} repository has been cloned to the runner."
       - run: composer require --dev phpunit/phpunit ^10
       - run: ./vendor/bin/phpunit --version
-      - run: mkdir -p tools/php-cs-fixer
-      - run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
       - run: echo "🎉 The job was automatically triggered by a ${{ gitea.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by Gitea!"
       - run: echo "🔎 The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
@@ -30,11 +28,6 @@ jobs:
           ls ${{ gitea.workspace }}
       - name: Run php unit tests
         run: ./vendor/bin/phpunit --testdox tests
-      - name: Run php-cs-fixer
-        run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-         commit_message: Apply php-cs-fixer changes
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Notify chatops
         uses: sarisia/actions-status-discord@v1
