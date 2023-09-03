@@ -39,3 +39,14 @@ jobs:
          description: "Test notification"
          username: Gitea Actions
          avatar_url: ${{ secrets.AVATAR_URL }}
+      - name: Notify chatops
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+         webhook: ${{ secrets.GUILDED_WEBHOOK }}
+         status: ${{ job.status }}
+         title: "Gitea actions demo.yaml completed"
+         description: "Test notification"
+         username: Gitea Actions
+         avatar_url: ${{ secrets.AVATAR_URL }}
+
